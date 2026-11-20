@@ -5,8 +5,8 @@
 body {
   margin: 0;
   font-family: "Trebuchet MS", Arial, sans-serif;
-  background: linear-gradient(135deg, #dff4ff, #eef7e8);
-  color: #18324a;
+  background: linear-gradient(135deg, #fff1b8, #ffc8dd, #c9e7ff);
+  color: #243047;
   min-height: 100vh;
 }
 
@@ -20,9 +20,9 @@ section {
   margin-bottom: 24px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.92);
-  border: 2px solid #b9dbe8;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(25, 86, 112, 0.12);
+  border: 3px solid #ffd166;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(88, 71, 150, 0.12);
 }
 
 h1,
@@ -31,25 +31,25 @@ h2 {
 }
 
 h1 {
-  color: #f2b705;
+  color: #ff5a79;
   text-align: center;
   font-size: 36px;
 }
 
 h2 {
-  color: #126e82;
+  color: #7157d9;
 }
 
 .page-header {
   margin-bottom: 20px;
   padding: 18px;
   border-radius: 14px;
-  background: #18324a;
+  background: linear-gradient(135deg, #7157d9, #ff5a79);
 }
 
 .club-name {
   margin: 0;
-  color: #87d4c4;
+  color: #fff1b8;
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
@@ -65,14 +65,14 @@ input,
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #87c7d9;
+  border: 2px solid #7bdff2;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #fffef5;
   font-size: 16px;
 }
 
 label {
-  color: #18324a;
+  color: #7157d9;
   font-weight: bold;
 }
 
@@ -90,7 +90,7 @@ button {
   padding: 10px 14px;
   border: 0;
   border-radius: 8px;
-  background: #ef4b4b;
+  background: linear-gradient(135deg, #7157d9, #ff5a79);
   color: white;
   cursor: pointer;
   font-size: 16px;
@@ -114,11 +114,11 @@ button:disabled {
   gap: 12px;
   align-items: center;
   padding: 12px 0;
-  border-bottom: 2px solid #dcecef;
+  border-bottom: 2px solid #ffe69c;
 }
 
 .delete-button {
-  background: #18324a;
+  background: #ff6b6b;
   font-size: 14px;
 }
 
