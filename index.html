@@ -36,15 +36,9 @@
         <label for="training-duration">Wie lange? (Minuten)</label>
         <input id="training-duration" type="number" min="1" max="300" placeholder="90" required>
 
-        <label for="training-effort">Wie anstrengend war es?</label>
-        <select id="training-effort" required>
-          <option value="">Bitte auswählen</option>
-          <option value="1">1 – Ganz leicht</option>
-          <option value="2">2 – Leicht</option>
-          <option value="3">3 – Mittel</option>
-          <option value="4">4 – Anstrengend</option>
-          <option value="5">5 – Sehr anstrengend</option>
-        </select>
+        <label for="session-rpe">Wie anstrengend war die ganze Einheit? (Session-RPE 0–10)</label>
+        <input id="session-rpe" type="number" min="0" max="10" step="1" placeholder="5" required>
+        <small>0 = Ruhe, 10 = maximal anstrengend. Direkt nach dem Training einschätzen.</small>
 
         <button type="submit">Einheit speichern</button>
         <p id="form-message" class="message" aria-live="polite"></p>

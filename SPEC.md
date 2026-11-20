@@ -50,3 +50,7 @@ Auf jeder Seite sind jederzeit folgende Bereiche erreichbar:
 - Kein Server, Login oder externe Datenbank
 - Daten werden im Browser gespeichert
 - Keine komplexen Animationen
+
+
+##Schritt 2
+die Anstrengung soll anhand vom session RPE getrackt werden

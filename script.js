@@ -29,16 +29,16 @@ function addTrainingEntry(event) {
 
   const type = document.querySelector("#training-type").value;
   const duration = Number(document.querySelector("#training-duration").value);
-  const effort = document.querySelector("#training-effort").value;
+  const sessionRpe = Number(document.querySelector("#session-rpe").value);
 
-  if (type === "" || duration < 1 || effort === "") {
+  if (type === "" || duration < 1 || sessionRpe < 0 || sessionRpe > 10) {
     return;
   }
 
   trainingEntries.unshift({
     type: type,
     duration: duration,
-    effort: Number(effort),
+    sessionRpe: sessionRpe,
     savedAt: new Date().toISOString()
   });
 
@@ -70,10 +70,13 @@ function addEntryToList(entry, index) {
   const details = document.createElement("div");
   const deleteButton = document.createElement("button");
   const date = new Date(entry.savedAt).toLocaleDateString("de-DE");
+  const sessionRpe = getSessionRpe(entry);
+  const sessionLoad = Number(entry.duration) * sessionRpe;
 
   details.className = "entry-details";
   details.textContent = entry.type + " – " + entry.duration +
-    " Minuten – Anstrengung " + entry.effort + "/5 – " + date;
+    " Minuten – Session-RPE " + sessionRpe + "/10 – sRPE-Last " +
+    sessionLoad + " – " + date;
 
   deleteButton.textContent = "Löschen";
   deleteButton.className = "delete-button";
@@ -91,6 +94,15 @@ function deleteEntry(index) {
   trainingEntries.splice(index, 1);
   saveEntries();
   showEntries();
+}
+
+// Reads the current Session-RPE or an older saved effort value.
+function getSessionRpe(entry) {
+  if (entry.sessionRpe !== undefined) {
+    return Number(entry.sessionRpe);
+  }
+
+  return Number(entry.effort) * 2;
 }
 
 // Returns entries saved during the last seven days.
@@ -143,7 +155,7 @@ function showAvatar() {
 
 // Calculates avatar values without changing saved training data.
 function addTrainingPoints(entry, scores) {
-  const points = Number(entry.effort) + Number(entry.duration) / 30;
+  const points = Number(entry.duration) * getSessionRpe(entry) / 30;
 
   if (entry.type === "Ausdauer") {
     scores.endurance += points;
