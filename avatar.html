@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Avatar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="club-name">SPORTVEREIN</p>
+      <h1>Mein Avatar</h1>
+      <a class="back-link" href="index.html">Zum Trainingstagebuch</a>
+    </header>
+
+    <section class="avatar-card">
+      <p>Entwickelt sich aus deinen Einträgen der letzten sieben Tage.</p>
+
+      <div class="avatar">
+        <div class="avatar-head"></div>
+        <div class="avatar-body"></div>
+      </div>
+
+      <p id="training-week">Noch keine Trainingseinheit diese Woche.</p>
+
+      <div class="avatar-stats">
+        <p><strong>Ausdauer</strong> <span id="endurance-value">0</span></p>
+        <div class="stat-bar"><div id="endurance-bar"></div></div>
+
+        <p><strong>Kraft</strong> <span id="strength-value">0</span></p>
+        <div class="stat-bar"><div id="strength-bar"></div></div>
+
+        <p><strong>Technik</strong> <span id="skill-value">0</span></p>
+        <div class="stat-bar"><div id="skill-bar"></div></div>
+
+        <p><strong>Regelmäßigkeit</strong> <span id="regularity-value">0</span></p>
+        <div class="stat-bar"><div id="regularity-bar"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

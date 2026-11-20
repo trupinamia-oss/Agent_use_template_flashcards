@@ -95,6 +95,10 @@ function showAvatar() {
   const recentEntries = getRecentEntries();
   const trainingWeek = document.querySelector("#training-week");
 
+  if (trainingWeek === null) {
+    return;
+  }
+
   if (recentEntries.length === 0) {
     trainingWeek.textContent = "Noch keine Trainingseinheit diese Woche.";
   } else {
@@ -171,6 +175,9 @@ function setAvatarValue(name, value) {
   document.querySelector("#" + name + "-bar").style.width = value + "%";
 }
 
-trainingForm.addEventListener("submit", addTrainingEntry);
-showEntries();
+if (trainingForm) {
+  trainingForm.addEventListener("submit", addTrainingEntry);
+  showEntries();
+}
+
 showAvatar();
