@@ -37,12 +37,14 @@ function addTrainingEntry(event) {
     type: trainingType.value,
     duration: duration,
     effort: trainingEffort.value,
-    date: new Date().toLocaleDateString("de-DE")
+    date: new Date().toLocaleDateString("de-DE"),
+    savedAt: new Date().toISOString()
   });
 
   saveEntries();
   trainingForm.reset();
   showEntries();
+  showAvatar();
 }
 
 // Displays all saved training entries.
@@ -85,7 +87,90 @@ function deleteEntry(index) {
   trainingEntries.splice(index, 1);
   saveEntries();
   showEntries();
+  showAvatar();
+}
+
+// Calculates simple avatar values from entries of the last seven days.
+function showAvatar() {
+  const recentEntries = getRecentEntries();
+  const trainingWeek = document.querySelector("#training-week");
+
+  if (recentEntries.length === 0) {
+    trainingWeek.textContent = "Noch keine Trainingseinheit diese Woche.";
+  } else {
+    trainingWeek.textContent =
+      recentEntries.length + " Trainingseinheit(en) in den letzten sieben Tagen.";
+  }
+
+  let endurancePoints = 0;
+  let strengthPoints = 0;
+  let skillPoints = 0;
+
+  for (let index = 0; index < recentEntries.length; index++) {
+    const entry = recentEntries[index];
+    const effort = Number(entry.effort);
+    const duration = Number(entry.duration);
+
+    if (entry.type === "Ausdauer") {
+      endurancePoints = endurancePoints + effort + duration / 30;
+    } else if (entry.type === "Kraft") {
+      strengthPoints = strengthPoints + effort + duration / 30;
+    } else {
+      skillPoints = skillPoints + effort + duration / 30;
+    }
+  }
+
+  const endurance = limitValue(endurancePoints * 8);
+  const strength = limitValue(strengthPoints * 8);
+  const skill = limitValue(skillPoints * 8);
+  const regularity = limitValue(recentEntries.length * 20);
+
+  setAvatarValue("endurance", endurance);
+  setAvatarValue("strength", strength);
+  setAvatarValue("skill", skill);
+  setAvatarValue("regularity", regularity);
+}
+
+// Finds entries that are no older than seven days.
+function getRecentEntries() {
+  const recentEntries = [];
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+  for (let index = 0; index < trainingEntries.length; index++) {
+    const entry = trainingEntries[index];
+
+    if (entry.savedAt) {
+      const entryDate = new Date(entry.savedAt);
+
+      if (entryDate >= sevenDaysAgo) {
+        recentEntries.push(entry);
+      }
+    }
+  }
+
+  return recentEntries;
+}
+
+// Keeps an avatar value between zero and 100.
+function limitValue(value) {
+  if (value > 100) {
+    return 100;
+  }
+
+  if (value < 0) {
+    return 0;
+  }
+
+  return Math.round(value);
+}
+
+// Updates one avatar value and its progress bar.
+function setAvatarValue(name, value) {
+  document.querySelector("#" + name + "-value").textContent = value;
+  document.querySelector("#" + name + "-bar").style.width = value + "%";
 }
 
 trainingForm.addEventListener("submit", addTrainingEntry);
 showEntries();
+showAvatar();
