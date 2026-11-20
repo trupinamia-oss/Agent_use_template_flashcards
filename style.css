@@ -68,6 +68,28 @@ h2 {
   text-decoration: none;
 }
 
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.main-navigation a {
+  padding: 8px 10px;
+  border: 2px solid #fffef5;
+  border-radius: 8px;
+  color: #fffef5;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.main-navigation a.active {
+  background: #fffef5;
+  color: #7157d9;
+}
+
 form {
   display: flex;
   flex-direction: column;
