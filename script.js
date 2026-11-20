@@ -175,9 +175,78 @@ function setAvatarValue(name, value) {
   document.querySelector("#" + name + "-bar").style.width = value + "%";
 }
 
+// Displays the team progress and its current story stage.
+function showTeamProgress() {
+  const teamTraining = document.querySelector("#team-training");
+
+  if (teamTraining === null) {
+    return;
+  }
+
+  const recentEntries = getRecentEntries();
+  let totalMinutes = 0;
+
+  for (let index = 0; index < recentEntries.length; index++) {
+    totalMinutes = totalMinutes + Number(recentEntries[index].duration);
+  }
+
+  const progress = limitValue(recentEntries.length * 20);
+  teamTraining.textContent =
+    recentEntries.length + " Trainingseinheiten und " +
+    totalMinutes + " Minuten in den letzten sieben Tagen.";
+
+  setTeamValue("team-training-count", recentEntries.length);
+  setTeamValue("team-minutes", totalMinutes);
+  setTeamValue("team-progress", progress);
+  setTeamValue("team-regularity", progress);
+  showStoryStage(progress);
+}
+
+// Updates one displayed team value.
+function setTeamValue(id, value) {
+  const element = document.querySelector("#" + id);
+
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+// Moves the team story to the stage matching the progress.
+function showStoryStage(progress) {
+  const stageName = document.querySelector("#story-name");
+  const stageText = document.querySelector("#story-text");
+
+  if (stageName === null || stageText === null) {
+    return;
+  }
+
+  if (progress >= 100) {
+    stageName.textContent = "Saisonende";
+    stageText.textContent =
+      "Das Team hat alle Etappen geschafft und feiert den gemeinsamen Abschluss.";
+  } else if (progress >= 80) {
+    stageName.textContent = "Rückrunde";
+    stageText.textContent =
+      "Das Team startet in die Rückrunde und setzt den gemeinsamen Weg fort.";
+  } else if (progress >= 60) {
+    stageName.textContent = "Pause";
+    stageText.textContent =
+      "Das Team erreicht eine kleine Pause und erholt sich für das nächste Ziel.";
+  } else if (progress >= 40) {
+    stageName.textContent = "Hinrunde";
+    stageText.textContent =
+      "Das Team erreicht die Hinrunde und sammelt weitere Erfahrungen.";
+  } else {
+    stageName.textContent = "Vorbereitung";
+    stageText.textContent =
+      "Das Team beginnt gemeinsam die Vorbereitung auf die Saison.";
+  }
+}
+
 if (trainingForm) {
   trainingForm.addEventListener("submit", addTrainingEntry);
   showEntries();
 }
 
 showAvatar();
+showTeamProgress();

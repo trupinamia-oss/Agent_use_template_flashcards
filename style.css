@@ -193,3 +193,24 @@ button:disabled {
   background: linear-gradient(90deg, #ffd166, #ff6b9d);
   transition: width 0.2s;
 }
+
+.team-card {
+  text-align: center;
+}
+
+.team-stats {
+  text-align: left;
+}
+
+.story-stage {
+  margin: 20px 0;
+  padding: 16px;
+  border: 3px solid #7bdff2;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fffef5, #c9e7ff);
+}
+
+.story-stage h3 {
+  margin-top: 0;
+  color: #7157d9;
+}
