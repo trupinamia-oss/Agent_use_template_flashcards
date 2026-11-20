@@ -40,13 +40,25 @@ function addTrainingEntry(event) {
   const type = document.querySelector("#training-type").value;
   const selectedDuration = durationSelect.value;
   let duration = Number(selectedDuration);
-  const sessionRpe = document.querySelector("#session-rpe").value;
+  const sessionRpeValue = document.querySelector("#session-rpe").value;
+  const sessionRpe = Number(sessionRpeValue);
 
   if (selectedDuration === "custom") {
     duration = Number(customDurationInput.value);
   }
 
-  if (type === "" || duration < 1 || sessionRpe === "") {
+  if (
+    type === "" ||
+    !Number.isInteger(duration) ||
+    duration < 1 ||
+    duration > 600 ||
+    selectedDuration === "" ||
+    sessionRpeValue === "" ||
+    !Number.isInteger(sessionRpe) ||
+    sessionRpe < 0 ||
+    sessionRpe > 10
+  ) {
+    formMessage.textContent = "Bitte gib eine gültige Dauer und Session-RPE von 0 bis 10 an.";
     return;
   }
 

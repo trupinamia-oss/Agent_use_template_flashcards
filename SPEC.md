@@ -61,3 +61,8 @@ Außerdem soll auch die anstrengung als dropdown menü vorhanden sein wie auch d
 
 ##schritt4
 verwende statt den ausgeschriebenen stunden und minuten im Drop Down menü h und min, außerdem soll dieser takt bei der zeitangabe bis 3h 30 min gehen 
+
+##schritt5
+verhinder das eine einheit mit den einträgen "dauer auswählen" etc abgespeichert werden kann
+es soll eine dauer eingetragen sein und eine zahl für den session RPE
+
