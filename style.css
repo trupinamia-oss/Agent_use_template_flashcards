@@ -4,9 +4,9 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #fff1b8, #ffc8dd, #c9e7ff);
-  color: #243047;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background: linear-gradient(135deg, #dff4ff, #eef7e8);
+  color: #18324a;
   min-height: 100vh;
 }
 
@@ -20,9 +20,9 @@ section {
   margin-bottom: 24px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.92);
-  border: 3px solid #ffd166;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(88, 71, 150, 0.12);
+  border: 2px solid #b9dbe8;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(25, 86, 112, 0.12);
 }
 
 h1,
@@ -31,13 +31,28 @@ h2 {
 }
 
 h1 {
-  color: #ff5a79;
+  color: #f2b705;
   text-align: center;
   font-size: 36px;
 }
 
 h2 {
-  color: #7157d9;
+  color: #126e82;
+}
+
+.page-header {
+  margin-bottom: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #18324a;
+}
+
+.club-name {
+  margin: 0;
+  color: #87d4c4;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 form {
@@ -46,23 +61,40 @@ form {
   gap: 8px;
 }
 
-input {
+input,
+select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #7bdff2;
+  border: 2px solid #87c7d9;
   border-radius: 8px;
-  background-color: #fffef5;
+  background-color: #ffffff;
   font-size: 16px;
+}
+
+label {
+  color: #18324a;
+  font-weight: bold;
+}
+
+.duration-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.duration-field input {
+  width: 120px;
 }
 
 button {
   padding: 10px 14px;
   border: 0;
   border-radius: 8px;
-  background: linear-gradient(135deg, #7157d9, #ff5a79);
+  background: #ef4b4b;
   color: white;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
 }
 
 button:disabled {
@@ -70,51 +102,26 @@ button:disabled {
   cursor: default;
 }
 
-#word-list {
+#training-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#word-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#training-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 12px;
-  padding: 10px 0;
-  border-bottom: 2px solid #ffe69c;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 2px solid #dcecef;
 }
 
 .delete-button {
-  background: #ff6b6b;
+  background: #18324a;
   font-size: 14px;
 }
 
-.flashcard {
-  min-height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  border: 4px solid #7bdff2;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #fef6bd, #c9f3ff);
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.flashcard:hover {
-  background: linear-gradient(135deg, #ffd166, #c7aef9);
-}
-
-#card-text {
-  margin: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.practice-buttons {
-  display: flex;
-  gap: 8px;
+.entry-details {
+  line-height: 1.5;
 }

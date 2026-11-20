@@ -3,41 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocab Flashcards</title>
+  <title>Trainingstagebuch</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Vocab Flashcards</h1>
+    <header class="page-header">
+      <p class="club-name">SPORTVEREIN</p>
+      <h1>Mein Trainingstagebuch</h1>
+    </header>
 
-    <section>
-      <h2>Neues Wortpaar</h2>
-      <form id="word-form">
-        <label for="english-word">Englisch</label>
-        <input id="english-word" type="text" placeholder="Hello" required>
+    <section class="entry-card">
+      <h2>Neue Trainingseinheit</h2>
+      <form id="training-form">
+        <label for="training-type">1. Was wurde trainiert?</label>
+        <select id="training-type" required>
+          <option value="">Bitte auswählen</option>
+          <option>Ausdauer</option>
+          <option>Kraft</option>
+          <option>Handball</option>
+          <option>Technik</option>
+          <option>Taktik</option>
+          <option>Spiel</option>
+          <option>Sonstiges</option>
+        </select>
 
-        <label for="german-word">Deutsch</label>
-        <input id="german-word" type="text" placeholder="Hallo" required>
+        <label for="training-duration">2. Wie lange dauerte das Training?</label>
+        <div class="duration-field">
+          <input id="training-duration" type="number" min="1" max="300" placeholder="90" required>
+          <span>Minuten</span>
+        </div>
 
-        <button type="submit">Hinzufügen</button>
+        <label for="training-effort">3. Wie anstrengend war es?</label>
+        <select id="training-effort" required>
+          <option value="">Bitte auswählen</option>
+          <option value="1">1 - Ganz leicht</option>
+          <option value="2">2 - Leicht</option>
+          <option value="3">3 - Mittel</option>
+          <option value="4">4 - Anstrengend</option>
+          <option value="5">5 - Sehr anstrengend</option>
+        </select>
+
+        <button type="submit">Eintrag speichern</button>
       </form>
     </section>
 
-    <section>
-      <h2>Meine Wortpaare</h2>
-      <ul id="word-list"></ul>
-    </section>
-
-    <section>
-      <h2>Übung</h2>
-      <p id="practice-count">Ich wusste 0 Karten.</p>
-      <div id="flashcard" class="flashcard">
-        <p id="card-text">Noch keine Karten vorhanden.</p>
-      </div>
-      <div class="practice-buttons">
-        <button id="knew-button" type="button" disabled>Ich wusste es</button>
-        <button id="next-button" type="button" disabled>Weiter</button>
-      </div>
+    <section class="history-card">
+      <h2>Meine Trainingseinheiten</h2>
+      <p id="entry-count">Noch keine Einträge.</p>
+      <ul id="training-list"></ul>
     </section>
   </main>
 
