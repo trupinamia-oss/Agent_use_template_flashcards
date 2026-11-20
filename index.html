@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainingstagebuch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="club-name">SPORTVEREIN</p>
+      <h1>Mein Trainingstagebuch</h1>
+      <nav class="main-navigation" aria-label="Hauptnavigation">
+        <a class="active" href="index.html">Tagebuch</a>
+        <a href="avatar.html">Avatar</a>
+        <a href="mannschaft.html">Mannschaft</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Neue Trainingseinheit</h2>
+      <form id="training-form">
+        <label for="training-type">Was wurde trainiert?</label>
+        <select id="training-type" required>
+          <option value="">Bitte auswählen</option>
+          <option>Ausdauer</option>
+          <option>Kraft</option>
+          <option>Handball</option>
+          <option>Technik</option>
+          <option>Taktik</option>
+          <option>Spiel</option>
+          <option>Sonstiges</option>
+        </select>
+
+        <label for="training-duration">Wie lange? (Minuten)</label>
+        <input id="training-duration" type="number" min="1" max="300" placeholder="90" required>
+
+        <label for="training-effort">Wie anstrengend war es?</label>
+        <select id="training-effort" required>
+          <option value="">Bitte auswählen</option>
+          <option value="1">1 – Ganz leicht</option>
+          <option value="2">2 – Leicht</option>
+          <option value="3">3 – Mittel</option>
+          <option value="4">4 – Anstrengend</option>
+          <option value="5">5 – Sehr anstrengend</option>
+        </select>
+
+        <button type="submit">Einheit speichern</button>
+        <p id="form-message" class="message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section>
+      <h2>Meine Trainingseinheiten</h2>
+      <p id="entry-count">Noch keine Einträge.</p>
+      <ul id="training-list" class="entry-list"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

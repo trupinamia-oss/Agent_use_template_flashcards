@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Avatar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="club-name">SPORTVEREIN</p>
+      <h1>Mein Avatar</h1>
+      <nav class="main-navigation" aria-label="Hauptnavigation">
+        <a href="index.html">Tagebuch</a>
+        <a class="active" href="avatar.html">Avatar</a>
+        <a href="mannschaft.html">Mannschaft</a>
+      </nav>
+    </header>
+
+    <section class="avatar-card">
+      <h2>Dein Trainings-Avatar</h2>
+      <p id="training-week">Deine Werte richten sich nach den letzten sieben Tagen.</p>
+      <div class="avatar" aria-label="Einfache Avatar-Darstellung">
+        <div class="avatar-head"></div>
+        <div class="avatar-body"></div>
+      </div>
+
+      <div class="avatar-stats">
+        <p><strong>Ausdauer</strong><span id="endurance-value">0</span></p>
+        <div class="stat-bar"><div id="endurance-bar"></div></div>
+        <p><strong>Kraft</strong><span id="strength-value">0</span></p>
+        <div class="stat-bar"><div id="strength-bar"></div></div>
+        <p><strong>Technik</strong><span id="skill-value">0</span></p>
+        <div class="stat-bar"><div id="skill-bar"></div></div>
+        <p><strong>Regelmäßigkeit</strong><span id="regularity-value">0</span></p>
+        <div class="stat-bar"><div id="regularity-bar"></div></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

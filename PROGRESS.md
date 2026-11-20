@@ -1,5 +1,5 @@
 # Progress
-
+ „Trainingstagebuch, Avatar und Mannschaftsübersicht umgesetzt und im Browser geprüft.“
 ## Done
 
 ## Next
