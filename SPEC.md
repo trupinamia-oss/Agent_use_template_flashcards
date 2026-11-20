@@ -54,3 +54,7 @@ Auf jeder Seite sind jederzeit folgende Bereiche erreichbar:
 
 ##Schritt 2
 die Anstrengung soll anhand vom session RPE getrackt werden
+
+##schritt 3
+die zeiten sollen im halben stundne takt im drop down menü zur verfügung stehen+ man sollte einen freitext einfügen können falls keine angegebene Uhrzeit zutrifft 
+Außerdem soll auch die anstrengung als dropdown menü vorhanden sein wie auch davor

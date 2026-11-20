@@ -3,8 +3,18 @@ const trainingForm = document.querySelector("#training-form");
 const trainingList = document.querySelector("#training-list");
 const entryCount = document.querySelector("#entry-count");
 const formMessage = document.querySelector("#form-message");
+const durationSelect = document.querySelector("#training-duration");
+const customDurationContainer = document.querySelector("#custom-duration-container");
+const customDurationInput = document.querySelector("#custom-duration");
 
 let trainingEntries = loadEntries();
+
+// Shows the custom duration field when needed.
+function showCustomDuration() {
+  const needsCustomDuration = durationSelect.value === "custom";
+  customDurationContainer.hidden = !needsCustomDuration;
+  customDurationInput.required = needsCustomDuration;
+}
 
 // Reads saved training entries from the browser.
 function loadEntries() {
@@ -28,10 +38,15 @@ function addTrainingEntry(event) {
   event.preventDefault();
 
   const type = document.querySelector("#training-type").value;
-  const duration = Number(document.querySelector("#training-duration").value);
-  const sessionRpe = Number(document.querySelector("#session-rpe").value);
+  const selectedDuration = durationSelect.value;
+  let duration = Number(selectedDuration);
+  const sessionRpe = document.querySelector("#session-rpe").value;
 
-  if (type === "" || duration < 1 || sessionRpe < 0 || sessionRpe > 10) {
+  if (selectedDuration === "custom") {
+    duration = Number(customDurationInput.value);
+  }
+
+  if (type === "" || duration < 1 || sessionRpe === "") {
     return;
   }
 
@@ -44,6 +59,7 @@ function addTrainingEntry(event) {
 
   saveEntries();
   trainingForm.reset();
+  showCustomDuration();
   formMessage.textContent = "Trainingseinheit gespeichert!";
   showEntries();
 }
@@ -221,6 +237,8 @@ function showStoryStage(progress) {
 
 if (trainingForm) {
   trainingForm.addEventListener("submit", addTrainingEntry);
+  durationSelect.addEventListener("change", showCustomDuration);
+  showCustomDuration();
   showEntries();
 }
 

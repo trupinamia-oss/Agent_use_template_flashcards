@@ -33,11 +33,41 @@
           <option>Sonstiges</option>
         </select>
 
-        <label for="training-duration">Wie lange? (Minuten)</label>
-        <input id="training-duration" type="number" min="1" max="300" placeholder="90" required>
+        <label for="training-duration">Wie lange dauerte das Training?</label>
+        <select id="training-duration" required>
+          <option value="">Dauer auswählen</option>
+          <option value="30">30 Minuten</option>
+          <option value="60">1 Stunde</option>
+          <option value="90">1 Stunde 30 Minuten</option>
+          <option value="120">2 Stunden</option>
+          <option value="150">2 Stunden 30 Minuten</option>
+          <option value="180">3 Stunden</option>
+          <option value="210">3 Stunden 30 Minuten</option>
+          <option value="240">4 Stunden</option>
+          <option value="270">4 Stunden 30 Minuten</option>
+          <option value="300">5 Stunden</option>
+          <option value="custom">Andere Dauer</option>
+        </select>
+        <div id="custom-duration-container" hidden>
+          <label for="custom-duration">Eigene Dauer in Minuten</label>
+          <input id="custom-duration" type="number" min="1" max="600" placeholder="Zum Beispiel 45">
+        </div>
 
         <label for="session-rpe">Wie anstrengend war die ganze Einheit? (Session-RPE 0–10)</label>
-        <input id="session-rpe" type="number" min="0" max="10" step="1" placeholder="5" required>
+        <select id="session-rpe" required>
+          <option value="">Anstrengung auswählen</option>
+          <option value="0">0 – Ruhe</option>
+          <option value="1">1 – Sehr leicht</option>
+          <option value="2">2 – Leicht</option>
+          <option value="3">3 – Mäßig</option>
+          <option value="4">4 – Etwas anstrengend</option>
+          <option value="5">5 – Anstrengend</option>
+          <option value="6">6</option>
+          <option value="7">7 – Sehr anstrengend</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10 – Maximal anstrengend</option>
+        </select>
         <small>0 = Ruhe, 10 = maximal anstrengend. Direkt nach dem Training einschätzen.</small>
 
         <button type="submit">Einheit speichern</button>
