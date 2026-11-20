@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocab Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Vocab Flashcards</h1>
+
+    <section>
+      <h2>Neues Wortpaar</h2>
+      <form id="word-form">
+        <label for="english-word">Englisch</label>
+        <input id="english-word" type="text" placeholder="Hello" required>
+
+        <label for="german-word">Deutsch</label>
+        <input id="german-word" type="text" placeholder="Hallo" required>
+
+        <button type="submit">Hinzufügen</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Meine Wortpaare</h2>
+      <ul id="word-list"></ul>
+    </section>
+
+    <section>
+      <h2>Übung</h2>
+      <p id="practice-count">Ich wusste 0 Karten.</p>
+      <div id="flashcard" class="flashcard">
+        <p id="card-text">Noch keine Karten vorhanden.</p>
+      </div>
+      <div class="practice-buttons">
+        <button id="knew-button" type="button" disabled>Ich wusste es</button>
+        <button id="next-button" type="button" disabled>Weiter</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

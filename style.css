@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+}
+
+.container {
+  width: calc(100% - 32px);
+  max-width: 600px;
+  margin: 32px auto;
+}
+
+section {
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #2f6fed;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: default;
+}
+
+#word-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#word-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.delete-button {
+  background-color: #b83232;
+  font-size: 14px;
+}
+
+.flashcard {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 2px solid #2f6fed;
+  border-radius: 8px;
+  background-color: #f8fbff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.flashcard:hover {
+  background-color: #eef4ff;
+}
+
+#card-text {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.practice-buttons {
+  display: flex;
+  gap: 8px;
+}
