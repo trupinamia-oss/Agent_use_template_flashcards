@@ -24,6 +24,7 @@ function formatEuro(amount) {
 // Zeigt die Konten aus der Startwertliste in der Tabelle.
 function renderAccounts() {
     const accountsList = document.getElementById("accounts-list");
+    accountsList.innerHTML = "";
 
     for (const account of accounts) {
         const row = document.createElement("tr");
