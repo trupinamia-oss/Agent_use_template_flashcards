@@ -6,8 +6,18 @@ const formMessage = document.querySelector("#form-message");
 const durationSelect = document.querySelector("#training-duration");
 const customDurationContainer = document.querySelector("#custom-duration-container");
 const customDurationInput = document.querySelector("#custom-duration");
+const trainingTypeSelect = document.querySelector("#training-type");
+const otherTrainingContainer = document.querySelector("#other-training-container");
+const otherTrainingInput = document.querySelector("#other-training-description");
 
 let trainingEntries = loadEntries();
+
+// Shows the detail field when "Sonstiges" is selected.
+function showOtherTrainingField() {
+  const needsDescription = trainingTypeSelect.value === "Sonstiges";
+  otherTrainingContainer.hidden = !needsDescription;
+  otherTrainingInput.required = needsDescription;
+}
 
 // Shows the custom duration field when needed.
 function showCustomDuration() {
@@ -37,7 +47,8 @@ function saveEntries() {
 function addTrainingEntry(event) {
   event.preventDefault();
 
-  const type = document.querySelector("#training-type").value;
+  const type = trainingTypeSelect.value;
+  const otherDescription = otherTrainingInput.value.trim();
   const selectedDuration = durationSelect.value;
   let duration = Number(selectedDuration);
   const sessionRpeValue = document.querySelector("#session-rpe").value;
@@ -49,6 +60,7 @@ function addTrainingEntry(event) {
 
   if (
     type === "" ||
+    (type === "Sonstiges" && otherDescription === "") ||
     !Number.isInteger(duration) ||
     duration < 1 ||
     duration > 600 ||
@@ -64,6 +76,7 @@ function addTrainingEntry(event) {
 
   trainingEntries.unshift({
     type: type,
+    description: type === "Sonstiges" ? otherDescription : "",
     duration: duration,
     sessionRpe: sessionRpe,
     savedAt: new Date().toISOString()
@@ -72,6 +85,7 @@ function addTrainingEntry(event) {
   saveEntries();
   trainingForm.reset();
   showCustomDuration();
+  showOtherTrainingField();
   formMessage.textContent = "Trainingseinheit gespeichert!";
   showEntries();
 }
@@ -102,7 +116,10 @@ function addEntryToList(entry, index) {
   const sessionLoad = Number(entry.duration) * sessionRpe;
 
   details.className = "entry-details";
-  details.textContent = entry.type + " – " + entry.duration +
+  const trainingName = entry.type === "Sonstiges" && entry.description
+    ? entry.type + ": " + entry.description
+    : entry.type;
+  details.textContent = trainingName + " – " + entry.duration +
     " Minuten – Session-RPE " + sessionRpe + "/10 – sRPE-Last " +
     sessionLoad + " – " + date;
 
@@ -250,7 +267,9 @@ function showStoryStage(progress) {
 if (trainingForm) {
   trainingForm.addEventListener("submit", addTrainingEntry);
   durationSelect.addEventListener("change", showCustomDuration);
+  trainingTypeSelect.addEventListener("change", showOtherTrainingField);
   showCustomDuration();
+  showOtherTrainingField();
   showEntries();
 }
 

@@ -1,5 +1,8 @@
+Am Anfang wurde direkt mit dem Chat gearbeitet ab schritt 4 dann schrittweise im SPEC
+
 ## Step nr
+3 - es hat im Menü die Auswahl "Datum auswählen gegeben" und man kann die TR Einheit auch abspeichern wenn dieses feld gewählt war 
 
-### What was new to me
 
-### New things I did learn
+##6
+hat ein extra pflichfeld eingefügt wenn man sonstiges auswählt 

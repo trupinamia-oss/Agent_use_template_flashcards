@@ -66,3 +66,7 @@ verwende statt den ausgeschriebenen stunden und minuten im Drop Down menü h und
 verhinder das eine einheit mit den einträgen "dauer auswählen" etc abgespeichert werden kann
 es soll eine dauer eingetragen sein und eine zahl für den session RPE
 
+##6
+bei Sonstiges soll man einen Freitext eintragen können - zur genauen doku der TR Einheit - zählt aber zur Überkategorie Sonstiges
+
+
