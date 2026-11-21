@@ -16,6 +16,9 @@
         <button id="show-balances-button" type="button" class="secondary-button">
             Kontostand verwalten
         </button>
+        <button id="show-accounts-button" type="button" class="secondary-button">
+            Konten verwalten
+        </button>
 
         <section id="balance-section" class="category-section hidden">
             <h2>Kontostand verwalten</h2>
@@ -28,8 +31,10 @@
 
                 <button type="submit">Kontostand speichern</button>
             </form>
+        </section>
 
-            <h3>Neues Konto oder Karte hinzufügen</h3>
+        <section id="account-section" class="category-section hidden">
+            <h2>Konten verwalten</h2>
             <form id="account-form">
                 <label for="new-account-name">Name</label>
                 <input id="new-account-name" type="text" placeholder="Zum Beispiel Sparkonto" required>

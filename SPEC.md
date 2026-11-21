@@ -49,3 +49,6 @@ Kategorien sollen auch symbole haben also nicht nur das wort sondern auch eine a
 
 ##7 
 bei kontostand verwalten soll es auch die option geben neue konten, karten etc hinzuzufügen 
+
+##8 
+kontostand und konto verwalten sollen 2 unterschiedliche absprünge sein 

@@ -2,3 +2,5 @@
 ##2 eintragen - die ganze Tabelle wird gedoppelt nochmal wieder gegeben mit dem einen neuen Wert 
 
 mit Sophie Ty & Katharina Awais - austausch und geteilt 
+
+##7 konten verwalten und kontostand in einem nicht getrennt 

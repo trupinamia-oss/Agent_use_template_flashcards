@@ -25,6 +25,8 @@ const showBalancesButton = document.getElementById("show-balances-button");
 const balanceForm = document.getElementById("balance-form");
 const balanceAccountSelect = document.getElementById("balance-account");
 const balanceAmountInput = document.getElementById("balance-amount");
+const accountSection = document.getElementById("account-section");
+const showAccountsButton = document.getElementById("show-accounts-button");
 const accountForm = document.getElementById("account-form");
 const newAccountNameInput = document.getElementById("new-account-name");
 const newAccountBalanceInput = document.getElementById("new-account-balance");
@@ -124,6 +126,15 @@ function toggleBalanceSection() {
         balanceSection.className = "category-section";
     } else {
         balanceSection.className = "category-section hidden";
+    }
+}
+
+// Öffnet oder schließt die Verwaltung für neue Konten und Karten.
+function toggleAccountSection() {
+    if (accountSection.className === "category-section hidden") {
+        accountSection.className = "category-section";
+    } else {
+        accountSection.className = "category-section hidden";
     }
 }
 
@@ -285,6 +296,7 @@ entryForm.addEventListener("submit", saveEntry);
 categoryForm.addEventListener("submit", addCategory);
 showCategoriesButton.addEventListener("click", toggleCategorySection);
 showBalancesButton.addEventListener("click", toggleBalanceSection);
+showAccountsButton.addEventListener("click", toggleAccountSection);
 balanceForm.addEventListener("submit", saveBalance);
 accountForm.addEventListener("submit", addAccount);
 
