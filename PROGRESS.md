@@ -6,8 +6,8 @@
 - Formular für Kontostände, Einnahmen, Ausgaben und Umbuchungen ergänzt
 - Kontenübersicht aktualisiert sich sofort
 - Farben und responsives Layout verbesserts
-## Next
-
-## Decisions & notes
-
-## Known problems
+## Done 4
+- Kategorieverwaltung als eigener Bereich ergänzt
+- Kategorien können hinzugefügt werden
+- Buchungsformular verwendet Kategorien-Dropdown
+- Ausgaben werden nach Kategorie summiert

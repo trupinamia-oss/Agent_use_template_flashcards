@@ -38,3 +38,6 @@ es sollte die option geben in einem formular die werte auch einzutragen - den Ko
 ##3 
 ros und lila Töne
 die bestehende tabelle soll aktualisiert werden und nicht gedoppelt mit einem neuen Wert 
+
+##4
+die Kategorien sollen in einem eigenen getrennten formular zu welchem man nur abspringt vom user gestalten werden können und dann im tropdown menü ausgewählt werden - so kann man ausgaben zu gewissen kategorien tracken und sich als grafik ausgeben lassen (zb. Food, Clothes, etc.) und hat nicht immer eine neue kategorie,da man es als freitext einträgt - dazu hat man dann die notiz 

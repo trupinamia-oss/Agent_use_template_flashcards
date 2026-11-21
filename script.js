@@ -12,6 +12,16 @@ const entryType = document.getElementById("entry-type");
 const accountSelect = document.getElementById("account");
 const targetAccountSelect = document.getElementById("target-account");
 const targetAccountField = document.getElementById("target-account-field");
+const categorySelect = document.getElementById("category");
+const categoryForm = document.getElementById("category-form");
+const categoryInput = document.getElementById("new-category");
+const categoryList = document.getElementById("category-list");
+const expenseCategoryList = document.getElementById("expense-category-list");
+const categorySection = document.getElementById("category-section");
+const showCategoriesButton = document.getElementById("show-categories-button");
+
+const categories = ["Gehalt", "Food", "Clothes", "Sonstiges"];
+const expenseEntries = [];
 
 // Formatiert einen Betrag für die Anzeige in Euro.
 function formatEuro(amount) {
@@ -59,6 +69,71 @@ function fillAccountSelects() {
         targetOption.value = account.name;
         targetOption.textContent = account.name;
         targetAccountSelect.appendChild(targetOption);
+    }
+}
+
+// Zeigt alle auswählbaren Kategorien im Formular.
+function renderCategories() {
+    categorySelect.innerHTML = "";
+    categoryList.innerHTML = "";
+
+    for (const category of categories) {
+        const categoryOption = document.createElement("option");
+        categoryOption.value = category;
+        categoryOption.textContent = category;
+        categorySelect.appendChild(categoryOption);
+
+        const categoryItem = document.createElement("li");
+        categoryItem.textContent = category;
+        categoryList.appendChild(categoryItem);
+    }
+}
+
+// Öffnet oder schließt die Kategorieverwaltung.
+function toggleCategorySection() {
+    if (categorySection.className === "category-section hidden") {
+        categorySection.className = "category-section";
+    } else {
+        categorySection.className = "category-section hidden";
+    }
+}
+
+// Fügt eine neue Kategorie hinzu, wenn sie noch nicht existiert.
+function addCategory(event) {
+    event.preventDefault();
+
+    const newCategory = categoryInput.value.trim();
+    if (newCategory === "") {
+        return;
+    }
+
+    const categoryExists = categories.includes(newCategory);
+    if (!categoryExists) {
+        categories.push(newCategory);
+        renderCategories();
+    }
+
+    categoryForm.reset();
+}
+
+// Zeigt die Summe aller Ausgaben für jede Kategorie.
+function renderExpenseCategories() {
+    expenseCategoryList.innerHTML = "";
+
+    for (const category of categories) {
+        let categoryTotal = 0;
+
+        for (const expense of expenseEntries) {
+            if (expense.category === category) {
+                categoryTotal = categoryTotal + expense.amount;
+            }
+        }
+
+        if (categoryTotal > 0) {
+            const categoryItem = document.createElement("li");
+            categoryItem.textContent = category + ": " + formatEuro(categoryTotal);
+            expenseCategoryList.appendChild(categoryItem);
+        }
     }
 }
 
@@ -111,9 +186,16 @@ function saveEntry(event) {
         transferAmount(accountName, targetName, amount);
     } else {
         updateAccountBalance(type, accountName, amount);
+        if (type === "expense") {
+            expenseEntries.push({
+                category: categorySelect.value,
+                amount: amount
+            });
+        }
     }
 
     renderAccounts();
+    renderExpenseCategories();
     entryForm.reset();
     entryDate.value = new Date().toISOString().split("T")[0];
     updateTargetAccountField();
@@ -122,6 +204,10 @@ function saveEntry(event) {
 entryDate.value = new Date().toISOString().split("T")[0];
 entryType.addEventListener("change", updateTargetAccountField);
 entryForm.addEventListener("submit", saveEntry);
+categoryForm.addEventListener("submit", addCategory);
+showCategoriesButton.addEventListener("click", toggleCategorySection);
 
 fillAccountSelects();
+renderCategories();
 renderAccounts();
+renderExpenseCategories();
