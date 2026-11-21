@@ -10,18 +10,55 @@
     <main>
         <h1>Net Worth Tracker</h1>
 
-        <section class="accounts-section">
-            <h2>Konten</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Konto</th>
-                        <th>Aktueller Stand</th>
-                    </tr>
-                </thead>
-                <tbody id="accounts-list"></tbody>
-            </table>
-        </section>
+        <div class="page-layout">
+            <section class="form-section">
+                <h2>Werte eintragen</h2>
+                <form id="entry-form">
+                    <label for="entry-date">Datum</label>
+                    <input id="entry-date" type="date" required>
+
+                    <label for="entry-type">Art</label>
+                    <select id="entry-type" required>
+                        <option value="balance">Kontostand setzen</option>
+                        <option value="income">Einnahme</option>
+                        <option value="expense">Ausgabe</option>
+                        <option value="transfer">Umbuchung</option>
+                    </select>
+
+                    <label for="account">Konto</label>
+                    <select id="account" required></select>
+
+                    <div id="target-account-field" class="hidden">
+                        <label for="target-account">Zielkonto</label>
+                        <select id="target-account"></select>
+                    </div>
+
+                    <label for="category">Kategorie</label>
+                    <input id="category" type="text" placeholder="Zum Beispiel Gehalt">
+
+                    <label for="amount">Betrag in €</label>
+                    <input id="amount" type="number" min="0.01" step="0.01" required>
+
+                    <label for="note">Notiz</label>
+                    <input id="note" type="text" placeholder="Optional">
+
+                    <button type="submit">Eintragen</button>
+                </form>
+            </section>
+
+            <section class="accounts-section">
+                <h2>Konten</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Konto</th>
+                            <th>Aktueller Stand</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accounts-list"></tbody>
+                </table>
+            </section>
+        </div>
     </main>
 
     <script src="script.js"></script>

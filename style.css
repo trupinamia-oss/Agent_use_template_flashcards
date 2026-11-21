@@ -1,26 +1,68 @@
 body {
     margin: 0;
-    background-color: #f7f3fa;
-    color: #3e3a45;
+    background-color: #eef7f5;
+    color: #26352f;
     font-family: Arial, sans-serif;
 }
 
 main {
-    max-width: 700px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 24px;
 }
 
 h1,
 h2 {
-    color: #5f566d;
+    color: #2f5f50;
 }
 
+.page-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-section,
 .accounts-section {
-    background-color: #fffafd;
-    border: 1px solid #eadfec;
-    border-radius: 12px;
+    background-color: #ffffff;
+    border: 2px solid #b8d9cf;
+    border-radius: 14px;
     padding: 20px;
+}
+
+form {
+    display: grid;
+    gap: 8px;
+}
+
+label {
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+button {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 42px;
+    border: 2px solid #91c2b3;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 12px;
+    border: none;
+    background-color: #efb366;
+    color: #3d2c16;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #dfa34f;
 }
 
 table {
@@ -31,7 +73,7 @@ table {
 th,
 td {
     padding: 12px;
-    border-bottom: 1px solid #eadfec;
+    border-bottom: 1px solid #d9ebe5;
     text-align: left;
 }
 
@@ -41,5 +83,16 @@ td:last-child {
 }
 
 .negative {
-    color: #c94c61;
+    color: #b83250;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
 }

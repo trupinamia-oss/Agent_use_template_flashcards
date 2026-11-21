@@ -30,3 +30,7 @@ Benutzeroberfläche
 Eine einzige Seite mit fünf Bereichen: oben das Gesamtvermögen, links Eingabeformular und Kontenstand, rechts zwei Diagramme, unten die Buchungsliste.
 
 Außerdem soll es in schönen Pastelfarben gehalten werden
+
+##2 
+schönere farben und größere Farbunterschiede
+es sollte die option geben in einem formular die werte auch einzutragen - den Kontostand eingeben und Einnahmen und ausgaben eintragen 
