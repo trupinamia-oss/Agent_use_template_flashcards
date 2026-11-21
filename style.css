@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    background-color: #eef7f5;
-    color: #26352f;
+    background-color: #f9edf4;
+    color: #4a2d43;
     font-family: Arial, sans-serif;
 }
 
@@ -13,7 +13,7 @@ main {
 
 h1,
 h2 {
-    color: #2f5f50;
+    color: #7b356d;
 }
 
 .page-layout {
@@ -24,8 +24,8 @@ h2 {
 
 .form-section,
 .accounts-section {
-    background-color: #ffffff;
-    border: 2px solid #b8d9cf;
+    background-color: #fffafd;
+    border: 2px solid #dba3c3;
     border-radius: 14px;
     padding: 20px;
 }
@@ -46,7 +46,7 @@ button {
     box-sizing: border-box;
     width: 100%;
     min-height: 42px;
-    border: 2px solid #91c2b3;
+    border: 2px solid #c477a5;
     border-radius: 8px;
     padding: 8px 10px;
     font-size: 16px;
@@ -55,14 +55,14 @@ button {
 button {
     margin-top: 12px;
     border: none;
-    background-color: #efb366;
-    color: #3d2c16;
+    background-color: #c55a8d;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #dfa34f;
+    background-color: #a94277;
 }
 
 table {
@@ -73,7 +73,7 @@ table {
 th,
 td {
     padding: 12px;
-    border-bottom: 1px solid #d9ebe5;
+    border-bottom: 1px solid #ecc8dc;
     text-align: left;
 }
 

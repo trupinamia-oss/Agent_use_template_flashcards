@@ -34,3 +34,7 @@ Außerdem soll es in schönen Pastelfarben gehalten werden
 ##2 
 schönere farben und größere Farbunterschiede
 es sollte die option geben in einem formular die werte auch einzutragen - den Kontostand eingeben und Einnahmen und ausgaben eintragen 
+
+##3 
+ros und lila Töne
+die bestehende tabelle soll aktualisiert werden und nicht gedoppelt mit einem neuen Wert 
