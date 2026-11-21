@@ -20,6 +20,11 @@ const categoryList = document.getElementById("category-list");
 const expenseCategoryList = document.getElementById("expense-category-list");
 const categorySection = document.getElementById("category-section");
 const showCategoriesButton = document.getElementById("show-categories-button");
+const balanceSection = document.getElementById("balance-section");
+const showBalancesButton = document.getElementById("show-balances-button");
+const balanceForm = document.getElementById("balance-form");
+const balanceAccountSelect = document.getElementById("balance-account");
+const balanceAmountInput = document.getElementById("balance-amount");
 
 const categories = [
     { name: "Gehalt", symbol: "💼" },
@@ -64,6 +69,7 @@ function renderAccounts() {
 function fillAccountSelects() {
     accountSelect.innerHTML = "";
     targetAccountSelect.innerHTML = "";
+    balanceAccountSelect.innerHTML = "";
 
     for (const account of accounts) {
         const accountOption = document.createElement("option");
@@ -75,6 +81,11 @@ function fillAccountSelects() {
         targetOption.value = account.name;
         targetOption.textContent = account.name;
         targetAccountSelect.appendChild(targetOption);
+
+        const balanceOption = document.createElement("option");
+        balanceOption.value = account.name;
+        balanceOption.textContent = account.name;
+        balanceAccountSelect.appendChild(balanceOption);
     }
 }
 
@@ -101,6 +112,15 @@ function toggleCategorySection() {
         categorySection.className = "category-section";
     } else {
         categorySection.className = "category-section hidden";
+    }
+}
+
+// Öffnet oder schließt die Verwaltung für Kontostände.
+function toggleBalanceSection() {
+    if (balanceSection.className === "category-section hidden") {
+        balanceSection.className = "category-section";
+    } else {
+        balanceSection.className = "category-section hidden";
     }
 }
 
@@ -182,6 +202,17 @@ function transferAmount(sourceName, targetName, amount) {
     updateAccountBalance("income", targetName, amount);
 }
 
+// Speichert einen neuen Kontostand für das gewählte Konto.
+function saveBalance(event) {
+    event.preventDefault();
+
+    const accountName = balanceAccountSelect.value;
+    const amount = Number(balanceAmountInput.value);
+    updateAccountBalance("balance", accountName, amount);
+    renderAccounts();
+    balanceForm.reset();
+}
+
 // Verarbeitet das Formular und aktualisiert die Kontenübersicht.
 function saveEntry(event) {
     event.preventDefault();
@@ -219,6 +250,8 @@ entryType.addEventListener("change", updateTargetAccountField);
 entryForm.addEventListener("submit", saveEntry);
 categoryForm.addEventListener("submit", addCategory);
 showCategoriesButton.addEventListener("click", toggleCategorySection);
+showBalancesButton.addEventListener("click", toggleBalanceSection);
+balanceForm.addEventListener("submit", saveBalance);
 
 fillAccountSelects();
 renderCategories();

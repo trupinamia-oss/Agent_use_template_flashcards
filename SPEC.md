@@ -44,3 +44,5 @@ die Kategorien sollen in einem eigenen getrennten formular zu welchem man nur ab
 
 ##5
 Kategorien sollen auch symbole haben also nicht nur das wort sondern auch eine abbildung 
+
+##6 es soll auch den absprung kontostand verwalten geben dieser soll getrennt werden vom Dropdown menü 

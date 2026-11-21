@@ -11,3 +11,7 @@
 - Kategorien können hinzugefügt werden
 - Buchungsformular verwendet Kategorien-Dropdown
 - Ausgaben werden nach Kategorie summiert
+
+##5
+Kategorien können Symbole erhalten
+Symbole werden in Dropdown und Ausgabenübersicht angezeigt
