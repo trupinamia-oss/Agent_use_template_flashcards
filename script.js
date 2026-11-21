@@ -1,6 +1,7 @@
 const accounts = [
     { name: "Bargeld", balance: 150 },
     { name: "Girokonto", balance: 2300 },
+    { name: "Sparbuch", balance: 0 },
     { name: "Gold", balance: 1800 },
     { name: "ETFs", balance: 4500 },
     { name: "Kredit", balance: -3000 }

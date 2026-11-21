@@ -15,6 +15,7 @@
 ##5
 Kategorien können Symbole erhalten
 Symbole werden in Dropdown und Ausgabenübersicht angezeigt
+- Konto "Sparbuch" mit einem Startstand von 0 € hinzugefügt
 
 ##6
 Separater Bereich zum Verwalten der Kontostände ergänzt
