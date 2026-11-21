@@ -46,3 +46,9 @@ die Kategorien sollen in einem eigenen getrennten formular zu welchem man nur ab
 Kategorien sollen auch symbole haben also nicht nur das wort sondern auch eine abbildung 
 
 ##6 es soll auch den absprung kontostand verwalten geben dieser soll getrennt werden vom Dropdown menü 
+
+##7 
+bei kontostand verwalten soll es auch die option geben neue konten, karten etc hinzuzufügen 
+
+##8 
+kontostand und konto verwalten sollen 2 unterschiedliche absprünge sein 
