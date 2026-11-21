@@ -1,16 +1,32 @@
-# Spec: Vocab Flashcards
+##1
+Net Worth Tracker
+Zweck: 
+Eine kleine Website, die auf einen Blick zeigt, wie viel ich insgesamt besitze: Bargeld, Girokonto (Bankomatkarte), Gold, ETFs, minus Schulden wie einen Kredit. Ich trage Einnahmen und Ausgaben ein, und kriege daraus ein errechnet Gesamtvermögen, als auch die jeweilige Vermögensaufteilung (Grafik).
 
-## Goal (one or two sentences)
+Nutzer: nur ich, vorerst am Laptop Browser
+Problem heute: Mein Geld liegt an mehreren Orten. Ich weiß nie genau, wie viel ich gerade habe und wofür ich im Monat am meisten ausgebe.
 
-## Users
+Nutzen: Ein Gesamtbetrag, eine Verteilung nach Anlageform und eine Monatsübersicht der Ein- und Ausgaben.
 
-## Features (numbered, so prompts can refer to them)
+1.	Konten (Startwerte), als Liste oder Tabelle
+2.	Buchungen, über ein Formular eingegeben
+Feld		
+Datum		
+Art		
+Konto		
+Zielkonto		
+Kategorie		
+Betrag in €		
+Notiz		
 
+Umbuchungen sollen auch möglich sein 
+Alle Ausgaben werden von JavaScript aus den Daten erzeugt und nach jeder neuen Buchung sofort neu gezeichnet.
+1.	Gesamtvermögen als große Zahl: Summe aller Konten minus Schulden. Mit den Startwerten oben sind das 150 + 2.300 + 1.800 + 4.500 − 3.000 = 5.750 €.
+2.	Konten-Übersicht als Tabelle: eine Zeile pro Konto mit aktuellem Stand. Negative Beträge (Kredit) erscheinen rot.
+3.	Verteilung als Kreisdiagramm (Chart.js): welcher Anteil des Vermögens in Bargeld, Girokonto, Gold und ETFs liegt.
+4.	Monatsübersicht als Balkendiagramm: Einnahmen und Ausgaben pro Monat nebeneinander, als zwei Datasets wie in der Chart-Übung.
+5.	Buchungsliste: die letzten Buchungen als Liste, neueste oben. Einnahmen grün, Ausgaben rot, jede mit Löschen-Button.
+Benutzeroberfläche
+Eine einzige Seite mit fünf Bereichen: oben das Gesamtvermögen, links Eingabeformular und Kontenstand, rechts zwei Diagramme, unten die Buchungsliste.
 
-## Acceptance criteria (how I know a feature works)
-
-
-## Out of scope (do NOT build)
-
-
-## Look & feel
+Außerdem soll es in schönen Pastelfarben gehalten werden

@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    background-color: #f7f3fa;
+    color: #3e3a45;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 24px;
+}
+
+h1,
+h2 {
+    color: #5f566d;
+}
+
+.accounts-section {
+    background-color: #fffafd;
+    border: 1px solid #eadfec;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eadfec;
+    text-align: left;
+}
+
+th:last-child,
+td:last-child {
+    text-align: right;
+}
+
+.negative {
+    color: #c94c61;
+}

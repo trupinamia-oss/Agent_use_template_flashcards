@@ -1,5 +1,1 @@
-## Step nr
-
-### What was new to me
-
-### New things I did learn
+##1 nicht so schön wie ich wollte und es hat mir mal nur die Tabelle erstellt mir wahllosen werten 
