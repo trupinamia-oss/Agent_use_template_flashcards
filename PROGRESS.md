@@ -19,3 +19,6 @@ Symbole werden in Dropdown und Ausgabenübersicht angezeigt
 ##6
 Separater Bereich zum Verwalten der Kontostände ergänzt
 Kontostände werden nicht mehr über das Buchungs-Dropdown gesetzt
+##7
+Neue Konten und Karten können hinzugefügt werden
+Neue Konten erhalten einen Startsaldo und erscheinen in allen Auswahlfeldern

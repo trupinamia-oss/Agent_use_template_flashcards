@@ -28,6 +28,17 @@
 
                 <button type="submit">Kontostand speichern</button>
             </form>
+
+            <h3>Neues Konto oder Karte hinzufügen</h3>
+            <form id="account-form">
+                <label for="new-account-name">Name</label>
+                <input id="new-account-name" type="text" placeholder="Zum Beispiel Sparkonto" required>
+
+                <label for="new-account-balance">Startsaldo in €</label>
+                <input id="new-account-balance" type="number" step="0.01" value="0" required>
+
+                <button type="submit">Konto hinzufügen</button>
+            </form>
         </section>
 
         <section id="category-section" class="category-section hidden">

@@ -25,6 +25,9 @@ const showBalancesButton = document.getElementById("show-balances-button");
 const balanceForm = document.getElementById("balance-form");
 const balanceAccountSelect = document.getElementById("balance-account");
 const balanceAmountInput = document.getElementById("balance-amount");
+const accountForm = document.getElementById("account-form");
+const newAccountNameInput = document.getElementById("new-account-name");
+const newAccountBalanceInput = document.getElementById("new-account-balance");
 
 const categories = [
     { name: "Gehalt", symbol: "💼" },
@@ -213,6 +216,37 @@ function saveBalance(event) {
     balanceForm.reset();
 }
 
+// Fügt ein neues Konto oder eine neue Karte zur Übersicht hinzu.
+function addAccount(event) {
+    event.preventDefault();
+
+    const newAccountName = newAccountNameInput.value.trim();
+    const newAccountBalance = Number(newAccountBalanceInput.value);
+
+    if (newAccountName === "") {
+        return;
+    }
+
+    const accountExists = accounts.some(function (account) {
+        return account.name === newAccountName;
+    });
+
+    if (accountExists) {
+        alert("Dieses Konto oder diese Karte existiert bereits.");
+        return;
+    }
+
+    accounts.push({
+        name: newAccountName,
+        balance: newAccountBalance
+    });
+
+    fillAccountSelects();
+    renderAccounts();
+    accountForm.reset();
+    newAccountBalanceInput.value = "0";
+}
+
 // Verarbeitet das Formular und aktualisiert die Kontenübersicht.
 function saveEntry(event) {
     event.preventDefault();
@@ -252,6 +286,7 @@ categoryForm.addEventListener("submit", addCategory);
 showCategoriesButton.addEventListener("click", toggleCategorySection);
 showBalancesButton.addEventListener("click", toggleBalanceSection);
 balanceForm.addEventListener("submit", saveBalance);
+accountForm.addEventListener("submit", addAccount);
 
 fillAccountSelects();
 renderCategories();
