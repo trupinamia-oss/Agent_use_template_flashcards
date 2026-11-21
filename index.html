@@ -19,6 +19,19 @@
             <form id="category-form">
                 <label for="new-category">Neue Kategorie</label>
                 <input id="new-category" type="text" placeholder="Zum Beispiel Gesundheit" required>
+                <label for="category-symbol">Symbol</label>
+                <select id="category-symbol" required>
+                    <option value="✨">✨ Sonstiges</option>
+                    <option value="🍔">🍔 Essen</option>
+                    <option value="👕">👕 Kleidung</option>
+                    <option value="🏠">🏠 Wohnen</option>
+                    <option value="🚗">🚗 Verkehr</option>
+                    <option value="🎮">🎮 Freizeit</option>
+                    <option value="💊">💊 Gesundheit</option>
+                    <option value="💼">💼 Arbeit</option>
+                    <option value="🎁">🎁 Geschenk</option>
+                    <option value="🐾">🐾 Haustier</option>
+                </select>
                 <button type="submit">Kategorie hinzufügen</button>
             </form>
             <ul id="category-list"></ul>

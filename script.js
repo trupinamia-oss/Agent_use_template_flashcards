@@ -15,12 +15,18 @@ const targetAccountField = document.getElementById("target-account-field");
 const categorySelect = document.getElementById("category");
 const categoryForm = document.getElementById("category-form");
 const categoryInput = document.getElementById("new-category");
+const categorySymbolSelect = document.getElementById("category-symbol");
 const categoryList = document.getElementById("category-list");
 const expenseCategoryList = document.getElementById("expense-category-list");
 const categorySection = document.getElementById("category-section");
 const showCategoriesButton = document.getElementById("show-categories-button");
 
-const categories = ["Gehalt", "Food", "Clothes", "Sonstiges"];
+const categories = [
+    { name: "Gehalt", symbol: "💼" },
+    { name: "Food", symbol: "🍔" },
+    { name: "Clothes", symbol: "👕" },
+    { name: "Sonstiges", symbol: "✨" }
+];
 const expenseEntries = [];
 
 // Formatiert einen Betrag für die Anzeige in Euro.
@@ -79,12 +85,12 @@ function renderCategories() {
 
     for (const category of categories) {
         const categoryOption = document.createElement("option");
-        categoryOption.value = category;
-        categoryOption.textContent = category;
+        categoryOption.value = category.name;
+        categoryOption.textContent = category.symbol + " " + category.name;
         categorySelect.appendChild(categoryOption);
 
         const categoryItem = document.createElement("li");
-        categoryItem.textContent = category;
+        categoryItem.textContent = category.symbol + " " + category.name;
         categoryList.appendChild(categoryItem);
     }
 }
@@ -107,9 +113,14 @@ function addCategory(event) {
         return;
     }
 
-    const categoryExists = categories.includes(newCategory);
+    const categoryExists = categories.some(function (category) {
+        return category.name === newCategory;
+    });
     if (!categoryExists) {
-        categories.push(newCategory);
+        categories.push({
+            name: newCategory,
+            symbol: categorySymbolSelect.value
+        });
         renderCategories();
     }
 
@@ -124,14 +135,16 @@ function renderExpenseCategories() {
         let categoryTotal = 0;
 
         for (const expense of expenseEntries) {
-            if (expense.category === category) {
+            if (expense.category === category.name) {
                 categoryTotal = categoryTotal + expense.amount;
             }
         }
 
         if (categoryTotal > 0) {
             const categoryItem = document.createElement("li");
-            categoryItem.textContent = category + ": " + formatEuro(categoryTotal);
+            categoryItem.textContent =
+                category.symbol + " " + category.name + ": " +
+                formatEuro(categoryTotal);
             expenseCategoryList.appendChild(categoryItem);
         }
     }
